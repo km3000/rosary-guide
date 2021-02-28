@@ -1,1 +1,0 @@
-# rosary-guide
