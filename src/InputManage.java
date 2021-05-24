@@ -44,6 +44,12 @@ public class InputManage extends KeyAdapter implements MouseListener{
 			case KeyEvent.VK_LEFT:
 				win.main.subtract();
 				break;
+			case KeyEvent.VK_ENTER:
+				win.main.add();
+				break;
+			case KeyEvent.VK_BACK_SPACE:
+				win.main.subtract();
+				break;
 			default: break;
 		}
 	}
