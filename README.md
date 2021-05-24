@@ -1,6 +1,8 @@
 # Rosary Guide
 This is a simple guide to praying the Rosary, written in Java. It is currently still a work in progress
 
+[v0.0.1](https://github.com/km3000/rosary-guide/releases/tag/0.0.1)
+
 ## To-do (listed by priority)
 * Fix formatting of prayers
 * Allow the program to select random images from each folder for each mystery
@@ -15,4 +17,4 @@ The top menu bar allows the user to select an item and start a new Rosary. After
 This program was made using Eclipse IDE, so it should be fairly simple to compile from there. After creating your JAR file, make sure that the "pics" and "prayers" folders and the icon files are included with it as they would be before compilation with the source files.
 
 ## Licensing
-This program is licensed under the MIT license. See the LICENSE file for more details. See the text files included in the "pics" folder for more information about the origins and licensing of the included pictures.
+This program is licensed under the MIT license. See the LICENSE file for more details. See the text files included in the ["pics" folder](https://github.com/km3000/rosary-guide/tree/master/pics) for more information about the [origins and licensing](https://github.com/km3000/rosary-guide/blob/master/pics/licensing.md) of the included pictures.
