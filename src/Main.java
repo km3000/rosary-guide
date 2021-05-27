@@ -10,7 +10,7 @@ public class Main {
 	TopMenu topM;
 	private int number = 0;
 	private String mysteries = "null";
-	private String mystery = "null";
+	private int mystery = 0;
 	private String person = "null";
 	private String language = "en";
 	
@@ -119,16 +119,16 @@ public class Main {
 	public String getHeader () {
 		String mysteriesTitle = "The " + StringUtils.capitalize(mysteries) + " Mysteries";
 		if(number > 6 && number < 72) {
-			mysteriesTitle += ": The " + StringUtils.capitalize(mystery);
+			mysteriesTitle += ": The " + Mysteries.getFullMystery(mysteries, mystery);
 		}
 		return mysteriesTitle;
 	}
 	
-	public String getMystery() {
+	public int getMystery() {
 		return mystery;
 	}
 
-	public void setMystery(String mystery) {
+	public void setMystery(int mystery) {
 		this.mystery = mystery;
 	}
 	

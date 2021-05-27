@@ -1,10 +1,10 @@
 # Rosary Guide
 This is a simple guide to praying the Rosary, written in Java. It is currently still a work in progress
 
+### Latest Version
 [v0.0.1](https://github.com/km3000/rosary-guide/releases/tag/0.0.1)
 
 ## To-do (listed by priority)
-* Add full titles for each mystery (e.g change "The Descent" to "The Descent of the Holy Spirit")
 * Fix formatting of prayers
 * Allow the program to select random images from each folder for each mystery
 * Create the manual page

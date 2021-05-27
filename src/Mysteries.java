@@ -1,4 +1,3 @@
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,6 +51,55 @@ public class Mysteries {
 						return "assumption";
 					case 5:
 						return "coronation";
+					default: break;
+				}
+			default: break;
+		}
+		return "NotFound";
+	}
+	
+	public static String getFullMystery (String mysteries, int num) {
+		switch (mysteries) {
+			case "joyful":
+				switch(num) {
+					case 1:
+						return "Annunciation";
+					case 2:
+						return "Visitation";
+					case 3:
+						return "Nativity of Our Lord";
+					case 4:
+						return "Presentation at the Temple";
+					case 5:
+						return "Finding of Jesus at the Temple";
+					default: break;
+				}
+			case "sorrowful":
+				switch(num) {
+					case 1:
+						return "Agony in the Garden";
+					case 2:
+						return "Scourging at the Pillar";
+					case 3:
+						return "Crowning of Thorns";
+					case 4:
+						return "Carrying of the Cross";
+					case 5:
+						return "Crucifixion";
+					default: break;
+				}
+			case "glorious":
+				switch(num) {
+					case 1:
+						return "Resurrection";
+					case 2:
+						return "Ascension";
+					case 3:
+						return "Descent of the Holy Spirit";
+					case 4:
+						return "Assumption of the Virgin Mary";
+					case 5:
+						return "Coronation of the Virgin Mary";
 					default: break;
 				}
 			default: break;

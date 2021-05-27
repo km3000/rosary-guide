@@ -60,7 +60,7 @@ public class Window extends JFrame {
 		topBar = new JLabel("Click Control > New > ... to Begin");
 			topBar.setHorizontalAlignment(JLabel.CENTER);
 			topBar.setForeground(Color.white);
-			topBar.setFont(new Font("Times New Roman", Font.PLAIN, 35));
+			topBar.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 			this.add(topBar, BorderLayout.NORTH);
 		bottomBar = new JLabel();
 			bottomBar.setHorizontalAlignment(JLabel.CENTER);
@@ -184,37 +184,37 @@ public class Window extends JFrame {
 		setBottomBarText();
 		this.add(bottomBar, BorderLayout.SOUTH);
 		if(main.getNumber() < 7) {
-			main.setMystery("null");
+			main.setMystery(0);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/1.png", width);
 			erasePic(mystery, mysteryIcon, mysteryLabel);
 		}
 		if(main.getNumber() >= 7 && main.getNumber() < 20) {
-			main.setMystery(Mysteries.getMystery(main.getMysteries(), 1));
+			main.setMystery(1);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/2.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+main.getMystery()+"/2.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/2.jpg", width);
 		}
 		if(main.getNumber() >= 20 && main.getNumber() < 33) {
-			main.setMystery(Mysteries.getMystery(main.getMysteries(), 2));
+			main.setMystery(2);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/3.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+main.getMystery()+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
 		}
 		if(main.getNumber() >= 33 && main.getNumber() < 46) {
-			main.setMystery(Mysteries.getMystery(main.getMysteries(), 3));
+			main.setMystery(3);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/4.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+main.getMystery()+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
 		}
 		if(main.getNumber() >= 46 && main.getNumber() < 59) {
-			main.setMystery(Mysteries.getMystery(main.getMysteries(), 4));
+			main.setMystery(4);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/5.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+main.getMystery()+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
 		}
 		if(main.getNumber() >= 59 && main.getNumber() < 72) {
-			main.setMystery(Mysteries.getMystery(main.getMysteries(), 5));
+			main.setMystery(5);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/6.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+main.getMystery()+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
 		}
 		if(main.getNumber() == 72) {
-			main.setMystery("null");
+			main.setMystery(0);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/7.png", width);
 			erasePic(mystery, mysteryIcon, mysteryLabel);
 		}
