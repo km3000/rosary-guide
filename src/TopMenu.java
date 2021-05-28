@@ -5,12 +5,13 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import javax.swing.JRadioButtonMenuItem;
+import javax.swing.ButtonGroup;
 import javax.swing.JEditorPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.UIManager;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
@@ -26,6 +27,7 @@ public class TopMenu extends JMenuBar implements ActionListener{
 			JMenuItem sorrowful;
 			JMenuItem glorious;
 		JMenu language;
+			ButtonGroup langs;
 			JRadioButtonMenuItem english;
 			JRadioButtonMenuItem latin;
 		JMenuItem exit;
@@ -59,11 +61,14 @@ public class TopMenu extends JMenuBar implements ActionListener{
 			newStuff.add(sorrowful);
 			newStuff.add(glorious);
 		language = new JMenu("Language");
+			langs = new ButtonGroup();
 			english = new JRadioButtonMenuItem("English");
 				english.addActionListener(this);
 			latin = new JRadioButtonMenuItem("Latin");
 				latin.addActionListener(this);
 			english.setSelected(true);
+			langs.add(english);
+			langs.add(latin);
 			language.add(english);
 			language.add(latin);
 		exit = new JMenuItem("Quit Program");
@@ -154,6 +159,22 @@ public class TopMenu extends JMenuBar implements ActionListener{
 		}
 		if(e.getSource().equals(visible)) {
 			win.toggleMenuBar();
+		}
+		if(e.getSource().equals(manual)) {
+			JEditorPane ep = new JEditorPane("text/html", "<html>"
+					+ "<body>"
+					+ "<p>To start a new Rosary, go to Control -> New, and select the set of mysteries you want.</p>"
+					+ "<p>Read the prayer that appears and press Enter or the Right Arrow to go to the next one.</p>"
+					+ "<p>Press Backspace or the Left Arrow to go back to the previous prayer.</p>"
+					+ "<p>The Rosary consists of the Apostle's Creed, an Our Father, three Hail Mary's, a Glory Be, and the five decades, concluding with a Hail Holy Queen.</p>"
+					+ "<p>Each decade starts with an Our Father, then ten Hail Mary's, a Glory Be, and the Fatima prayer.</p>"
+					+ "<p>This program does the counting for you. All you need to do is press Enter or the Right Arrow after each prayer.</p>"
+					+ "<p>Additional settings and information are included in the top menu bar.</p>"
+					+ "</body>"
+					+ "</html>");
+			ep.setEditable(false);
+			ep.setBackground(UIManager.getColor ( "Panel.background" ));
+			JOptionPane.showMessageDialog(win, ep, "About", JOptionPane.PLAIN_MESSAGE);
 		}
 		if(e.getSource().equals(about)) {
 			JEditorPane ep = new JEditorPane("text/html", "<html>"
