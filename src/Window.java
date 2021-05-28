@@ -1,24 +1,31 @@
-import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
+import java.awt.Insets;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class Window extends JFrame {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	KeyListener inputter;
 	boolean isFull = false;
@@ -36,10 +43,9 @@ public class Window extends JFrame {
 	JLabel topBar;
 	JLabel bottomBar;
 	JLabel dedication;
-	JPanel images;
-	JPanel middleContent;
-	GridLayout paneBox;
-	BoxLayout bigPaneBox;
+	JPanel mainPanel;
+	GridBagLayout gridbag;
+	GridBagConstraints gbc;
 	BufferedImage rosary;
 	BufferedImage mystery;
 	BufferedImage person;
@@ -49,7 +55,7 @@ public class Window extends JFrame {
 	JLabel rosaryLabel;
 	JLabel mysteryLabel;
 	JLabel personLabel;
-	JLabel prayerLabel;
+	JTextArea prayerText;
 	
 	
 	public Window(Main e) {
@@ -69,12 +75,14 @@ public class Window extends JFrame {
 			this.add(bottomBar, BorderLayout.SOUTH);
 		dedication = new JLabel("Dedicated to Our Lady of Fatima");
 			dedication.setForeground(Color.white);
-			//dedication.setHorizontalAlignment(JLabel.LEFT);
 			this.add(dedication, BorderLayout.SOUTH);
-		prayerLabel = new JLabel();
-			prayerLabel.setForeground(Color.white);
-			prayerLabel.setSize(this.getWidth(), this.getHeight()/3);
-			prayerLabel.setHorizontalAlignment(JLabel.LEFT);
+		prayerText = new JTextArea();
+			prayerText.setBackground(null);
+			prayerText.setForeground(Color.white);
+			prayerText.setFocusable(false);
+			prayerText.setEditable(false);
+			prayerText.setLineWrap(true);
+			prayerText.setWrapStyleWord(true);
 		initImages();
 	}
 	
@@ -85,7 +93,8 @@ public class Window extends JFrame {
 		ImageIcon icon = new ImageIcon("icon.png");
 		this.setIconImage(icon.getImage());
 		this.setSize(800,600);
-		this.setResizable(false);
+		//this.setResizable(false);
+		this.setResizable(true);
 		this.setFocusable(true);
 		this.setLocationRelativeTo(null);
 	}
@@ -114,6 +123,8 @@ public class Window extends JFrame {
 		if(main.getNumber() > 0) {
 			loadImages();
 		}
+		prayerText.setBounds(this.getWidth()/2 - 350, this.getHeight() - 250, 700, 150);
+		this.add(bottomBar, BorderLayout.SOUTH);
 		this.add(dedication, BorderLayout.SOUTH);
 	}
 	
@@ -142,7 +153,13 @@ public class Window extends JFrame {
 		if(main.getNumber() > 0) {
 			loadImages();
 		}
+		prayerText.setBounds(this.getWidth()/2 - 350, this.getHeight() - 250, 700, 150);
+		this.add(bottomBar, BorderLayout.SOUTH);
 		this.add(dedication, BorderLayout.SOUTH);
+		mainPanel.repaint();
+		mainPanel.revalidate();
+		this.repaint();
+		this.revalidate(); 
 	}
 	
 	public void toggleMenuBar () {
@@ -154,28 +171,34 @@ public class Window extends JFrame {
 		}
 	}
 	
-	//Instantiates several Swing objects
+	//Instantiates several Swing objects and creates the general layout of the content GUI
 	public void initImages () {
-		images = new JPanel();
-		middleContent = new JPanel();
-		paneBox = new GridLayout(0, 3);
-		bigPaneBox = new BoxLayout(middleContent, BoxLayout.PAGE_AXIS);
-		images.setLayout(paneBox);
-		middleContent.setLayout(bigPaneBox);
-		images.setBackground(Color.darkGray);
-		middleContent.setBackground(Color.darkGray);
+		mainPanel = new JPanel();
+		mainPanel.setBackground(Color.darkGray);
+		gridbag = new GridBagLayout();
+		gbc = new GridBagConstraints();
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.insets = new Insets(50, 50, 50, 50);
+		gridbag.setConstraints(mainPanel, gbc);
+		mainPanel.setLayout(gridbag);
 		rosaryIcon = new ImageIcon();
 		mysteryIcon = new ImageIcon();
 		personIcon = new ImageIcon();
 		rosaryLabel = new JLabel();
 		mysteryLabel = new JLabel();
 		personLabel = new JLabel();
-		images.add(rosaryLabel);
-		images.add(mysteryLabel);
-		images.add(personLabel);
-		middleContent.add(images);
-		middleContent.add(prayerLabel);
-		this.add(middleContent);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		mainPanel.add(rosaryLabel, gbc);
+		gbc.gridx = 1;
+		mainPanel.add(mysteryLabel, gbc);
+		gbc.gridx = 2;
+		mainPanel.add(personLabel, gbc);
+		gbc.gridwidth = 3;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		mainPanel.add(prayerText, gbc);
+		this.add(mainPanel);
 	}
 	
 	//This method refreshes the images displayed according to what the variables in the Main class say should be displayed
@@ -234,16 +257,13 @@ public class Window extends JFrame {
 				}
 			}
 		}
-		prayerLabel.setText("<html>"+main.getPrayerText()+"</html>");
-		prayerLabel.setSize(this.getWidth(), this.getHeight()/3);
-		prayerLabel.setAlignmentX(LEFT_ALIGNMENT);
-		middleContent.add(prayerLabel);
+		prayerText.setText(main.getPrayerText());
+		prayerText.setSize(700, 150);
+		mainPanel.repaint();
+		mainPanel.revalidate();
+		this.repaint();
+		this.revalidate();
 		this.setVisible(true);
-		images.repaint();
-		images.revalidate();
-		middleContent.repaint();
-		middleContent.revalidate();
-		this.add(middleContent);
 	}
 	
 	public void loadImage (BufferedImage buf, ImageIcon ico, JLabel jlab, String path, double width) {
@@ -261,7 +281,6 @@ public class Window extends JFrame {
 		ico.setImage(buf);
 		jlab.setIcon(ico);
 		jlab.setVisible(true);
-		images.add(jlab);
 	}
 	
 	public void setBottomBarText () {
