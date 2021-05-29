@@ -214,27 +214,27 @@ public class Window extends JFrame {
 		if(main.getNumber() >= 7 && main.getNumber() < 20) {
 			main.setMystery(1);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/2.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/2.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/"+main.getImgLoad().getPic1(), width);
 		}
 		if(main.getNumber() >= 20 && main.getNumber() < 33) {
 			main.setMystery(2);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/3.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/"+main.getImgLoad().getPic2(), width);
 		}
 		if(main.getNumber() >= 33 && main.getNumber() < 46) {
 			main.setMystery(3);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/4.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/"+main.getImgLoad().getPic3(), width);
 		}
 		if(main.getNumber() >= 46 && main.getNumber() < 59) {
 			main.setMystery(4);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/5.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/"+main.getImgLoad().getPic4(), width);
 		}
 		if(main.getNumber() >= 59 && main.getNumber() < 72) {
 			main.setMystery(5);
 			loadImage(rosary, rosaryIcon, rosaryLabel, "beads/6.png", width);
-			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/1.jpg", width);
+			loadImage(mystery, mysteryIcon, mysteryLabel, main.getMysteries()+"/"+Mysteries.getMystery(main.getMysteries(), main.getMystery())+"/"+main.getImgLoad().getPic5(), width);
 		}
 		if(main.getNumber() == 72) {
 			main.setMystery(0);

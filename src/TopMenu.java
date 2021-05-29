@@ -19,6 +19,11 @@ import javax.swing.event.HyperlinkListener;
 //Class for the top menu bar
 public class TopMenu extends JMenuBar implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	Window win;
 	
 	JMenu control;

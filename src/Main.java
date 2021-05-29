@@ -13,6 +13,7 @@ public class Main {
 	private int mystery = 0;
 	private String person = "null";
 	private String language = "en";
+	private ImageLoader imgLoad;
 	
 	public final static int[] CHECKPOINTS = {2, 7, 20, 33, 46, 59, 72};
 	public final static int[] JESUSS = {19, 32, 45, 58, 71};
@@ -32,6 +33,7 @@ public class Main {
 		person = findPerson();
 		win.loadImages();
 		win.topBar.setText(getHeader());
+		imgLoad = new ImageLoader(mysteries);
 	}
 	
 	public String getMysteries() {
@@ -134,6 +136,10 @@ public class Main {
 	
 	public String getPrayerText() {
 		return Mysteries.getPrayerText("prayers/" + getLanguage() + "_" + Mysteries.getPrayer(getNumber()) + ".txt");
+	}
+
+	public ImageLoader getImgLoad() {
+		return imgLoad;
 	}
 
 	public static boolean arrayContains (int[] array, int value) {
