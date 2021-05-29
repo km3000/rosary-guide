@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Main {  
 	
-	public final static String VERSION = "0.0.1";
+	public final static String VERSION = "0.1";
 	
 	Window win;
 	TopMenu topM;
