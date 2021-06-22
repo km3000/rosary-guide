@@ -93,8 +93,7 @@ public class Window extends JFrame {
 		ImageIcon icon = new ImageIcon("icon.png");
 		this.setIconImage(icon.getImage());
 		this.setSize(800,600);
-		//this.setResizable(false);
-		this.setResizable(true);
+		this.setResizable(false);
 		this.setFocusable(true);
 		this.setLocationRelativeTo(null);
 	}
@@ -146,8 +145,6 @@ public class Window extends JFrame {
 				break;
 			case "1920x1080": this.setSize(1920, 1080);
 				break;
-			//case "Maximize": this.setExtendedState(MAXIMIZED_BOTH);
-			//	break;
 			default: break;
 		}
 		if(main.getNumber() > 0) {

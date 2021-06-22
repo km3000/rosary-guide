@@ -44,7 +44,6 @@ public class TopMenu extends JMenuBar implements ActionListener{
 			JMenuItem x1360x768;
 			JMenuItem x1600x900;
 			JMenuItem x1920x1080;
-			JMenuItem maximize;
 		JMenuItem fullscreen;
 		JMenuItem visible;
 	JMenu help;
@@ -96,15 +95,12 @@ public class TopMenu extends JMenuBar implements ActionListener{
 				x1600x900.addActionListener(this);
 			x1920x1080 = new JMenuItem("1920x1080");
 				x1920x1080.addActionListener(this);
-			maximize = new JMenuItem("Maximize");
-				maximize.addActionListener(this);
 			changeSize.add(x800x600);
 			changeSize.add(x1024x600);
 			changeSize.add(x1280x720);
 			changeSize.add(x1360x768);
 			changeSize.add(x1600x900);
 			changeSize.add(x1920x1080);
-			changeSize.add(maximize);
 		fullscreen = new JMenuItem("Toggle Fullscreen (Ctrl + F)");
 			fullscreen.addActionListener(this);
 		visible = new JMenuItem("Toggle Menu Bar Visibility (G)");
@@ -155,8 +151,7 @@ public class TopMenu extends JMenuBar implements ActionListener{
 				e.getSource().equals(x1280x720) || 
 				e.getSource().equals(x1360x768) || 
 				e.getSource().equals(x1600x900) || 
-				e.getSource().equals(x1920x1080) || 
-				e.getSource().equals(maximize)) {
+				e.getSource().equals(x1920x1080)) {
 			win.changeSize(((JMenuItem) e.getSource()).getText());
 		}
 		if(e.getSource().equals(fullscreen)) {
