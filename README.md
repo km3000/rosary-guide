@@ -2,7 +2,7 @@
 This is a simple guide to praying the Rosary, written in Java. It is currently still a work in progress
 
 ### Latest Version
-[v0.1](https://github.com/km3000/rosary-guide/releases/tag/0.1)
+[v0.1.1](https://github.com/km3000/rosary-guide/releases/tag/v0.1.1)
 
 ## To-do (listed by priority)
 * Add GUI arrow buttons for navigation
